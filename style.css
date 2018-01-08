@@ -1,0 +1,23 @@
+#gridContainer {
+	margin: 0 auto;
+	width: 300px;
+	height: 300px;
+	border: 1px solid black;
+}
+
+
+.column {
+	width: auto;
+	height: auto;
+	display: inline-grid;
+}
+
+.pixel {
+	margin: 0;
+	width: 50px;
+	height: 50px;
+	background-color: black;
+	margin: 1px;
+
+1}
+1
