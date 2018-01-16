@@ -2,17 +2,17 @@
 container = document.getElementById('gridContainer');
 buildNewGrid = document.getElementById('reset');
 changeGridSize = document.getElementById('adjust');
+input = document.querySelector('input');
 
 container.style.width = '780px';
 container.style.height = '780px';
 buildGrid(16);
 
 buildNewGrid.addEventListener("click", function() {
-	//getNewGridSize();
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
 	}
-	buildGrid(100);
+	buildGrid(input.value);
 })
 
 changeGridSize.addEventListener("click", function() {
@@ -20,46 +20,47 @@ changeGridSize.addEventListener("click", function() {
 })
 
 function buildGrid(dimension) {
-
+	let gridSize = dimension;
 	const wrap = document.createElement('div');
 	wrap.setAttribute('class', "wrap");
-	//wrap.style.marginTop = '4px';
 	container.appendChild(wrap);
 
 	for (var i = 0; i < dimension ** 2; i++) {
 		const newPixel = document.createElement('div');
 		newPixel.setAttribute('id', `num${i}`);
 		newPixel.classList.add("pixel");
-		modifyPixel(newPixel, dimension, 'red');
+		modifyPixel(newPixel, dimension, 'teal'); 
 		wrap.appendChild(newPixel);
-
 	}
 
-colorPixels();
+	//pull color
+
+	
+	colorPixels();
 }
 
 function colorPixels() {
 	let allSquares = document.querySelectorAll(".pixel");
 	allSquares.forEach((pixel) => {
 		pixel.addEventListener("mouseover", function() {
-			this.style.backgroundColor = 'black';
+			this.style.backgroundColor = 'magenta';
 		})
 	})
 }
 
 
 function modifyPixel(newPixel, dimension, color) {
-// Set, color, width, height
 	newPixel.style.backgroundColor = color;
 
-	var styleString = (parseInt(container.style.width, 10) / dimension) + 'px';
-	console.log(container.style.width);
+	var styleString = ((parseInt(container.style.width, 10) / dimension) - 0.005) + 'px';
 	newPixel.style.width = `${styleString}`;
 	newPixel.style.height = `${styleString}`;
 	//newPixel.style.marginTop = '-4px';
 }
 
+//TODO:
 
-//add button to adjust grid dimensions
+//combine modify pixel and color pixel
+
 //add button to change color
 

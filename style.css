@@ -1,7 +1,16 @@
 
 button {
-	display: block;
+	
+	display: inline-block;
 	margin: 10px auto;
+}
+
+input {
+	display: inline-block;
+	margin: 0 auto;
+	width:25px;
+	height:20px;
+	text-align: center;
 }
 
 #gridContainer {
@@ -16,10 +25,9 @@ button {
 
 }
 
-
 .pixel {
 	float: inline-start;
-	width: 50px;
-	height: 50px;
+	width: auto;
+	height: auto;
 	background-color: black;
 }
